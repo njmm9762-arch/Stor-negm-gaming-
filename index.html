@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ستور حسابات ببجي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="glow">🎮 ستور حسابات ببجي</header>
+
+  <div class="menu" id="mainMenu">
+    <div class="card" onclick="sell()">💰 بيع حسابات ببجي</div>
+    <div class="card" onclick="buy()">🛒 شراء حسابات ببجي</div>
+    <div class="card" onclick="showWheel()">🎡 عجلة الحظ اليومية</div>
+    <div class="card" onclick="shareSite()">🔗 مشاركة الموقع</div>
+  </div>
+
+  <div id="wheelBox" class="hidden">
+    <h2 class="neon">🎡 عجلة الحظ</h2>
+    <input id="pid" placeholder="ادخل ID ببجي">
+    <input id="pname" placeholder="ادخل الاسم">
+    <button onclick="spin()">لف العجلة</button>
+    <p id="result"></p>
+
+    <h3>💬 التعليقات</h3>
+    <textarea id="comment" placeholder="اكتب تعليقك"></textarea>
+    <button onclick="addComment()">إضافة تعليق</button>
+    <ul id="comments"></ul>
+
+    <button class="back" onclick="back()">رجوع</button>
+  </div>
+
+  <footer>© 2026 PUBG STORE</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
