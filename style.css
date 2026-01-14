@@ -1,12 +1,7 @@
-/* style.css */
-*{
-  box-sizing:border-box;
-  font-family:Tahoma;
-}
-
 body{
   margin:0;
-  background:#0f1225;
+  background:#0b0f2a;
+  font-family:tahoma;
   color:#fff;
 }
 
@@ -14,53 +9,32 @@ body{
   max-width:420px;
   margin:auto;
   padding:15px;
-}
-
-.title{
   text-align:center;
-  margin-bottom:20px;
-  color:#00ffd5;
 }
 
-.actions{
+h1{color:#00ffd5}
+
+.buttons{
   display:flex;
   gap:10px;
-  margin-bottom:20px;
 }
 
-.actions button{
-  flex:1;
+button{
   padding:12px;
   border:none;
   border-radius:12px;
   background:#1e90ff;
   color:#fff;
-  font-size:15px;
-}
-
-.wheel-section{
-  background:#161a3a;
-  padding:15px;
-  border-radius:15px;
-  text-align:center;
-}
-
-.wheel-section input{
-  width:100%;
-  margin-bottom:10px;
-  padding:10px;
-  border-radius:10px;
-  border:none;
 }
 
 .wheel-box{
   position:relative;
-  width:240px;
-  height:240px;
-  margin:15px auto;
+  width:260px;
+  height:260px;
+  margin:20px auto;
 }
 
-#wheel{
+.wheel{
   width:100%;
   height:100%;
   border-radius:50%;
@@ -70,92 +44,48 @@ body{
     #ef476f 180deg 270deg,
     #118ab2 270deg 360deg
   );
-  transition:transform 3s ease-out;
+  display:flex;
+  flex-wrap:wrap;
+  transition:3s;
 }
 
-.pointer{
+.wheel span{
+  width:50%;
+  height:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.arrow{
   position:absolute;
-  top:-8px;
+  top:-10px;
   left:50%;
   transform:translateX(-50%);
 }
 
-.spin{
+input{
   width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  background:#ffb703;
-  font-size:16px;
-}
-
-.share{
-  margin-top:20px;
-  background:#161a3a;
-  padding:15px;
-  border-radius:15px;
-  text-align:center;
-}
-
-.share button{
-  margin-top:10px;
-  padding:10px 20px;
-  border:none;
+  margin:5px 0;
+  padding:10px;
   border-radius:10px;
-  background:#00ffd5;
+  border:none;
 }
 
-input {
-  width: 80%;
-  padding: 12px;
-  margin: 5px 0;
-  border-radius: 12px;
-  border: none;
+.spin{
+  background:#ffb703;
+  margin-top:10px;
 }
 
-.wheel-box {
-  position: relative;
-  width: 260px;
-  height: 260px;
-  margin: 20px auto;
+ul{
+  list-style:none;
+  padding:0;
 }
 
-.wheel {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: conic-gradient(
-    #00ffd5 0deg 90deg,
-    #ffb703 90deg 180deg,
-    #ef476f 180deg 270deg,
-    #118ab2 270deg 360deg
-  );
-  transition: transform 3s ease-out;
-}
-
-.pointer {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 24px;
-}
-
-.spin-btn {
-  padding: 12px 30px;
-  border: none;
-  border-radius: 15px;
-  background: #ffb703;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.share button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 12px;
-  background: #0b1130;
-  color: #fff;
-  cursor: pointer;
+li{
+  background:#161a3a;
+  margin:5px 0;
+  padding:8px;
+  border-radius:10px;
 }
