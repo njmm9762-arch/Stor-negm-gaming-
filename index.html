@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -11,32 +10,37 @@
 
 <div class="app">
 
-<h1 class="title">The Stor Gaming</h1>
+<h1>The Stor Gaming</h1>
 
-<div class="actions">
-  <button onclick="sellAccount()">بيع حساب ببجي</button>
-  <button onclick="buyAccount()">شراء حساب ببجي</button>
+<div class="buttons">
+  <button onclick="sell()">بيع حساب ببجي</button>
+  <button onclick="buy()">شراء حساب ببجي</button>
 </div>
 
-<div class="wheel-section">
-  <h2>🎡 عجلة الحظ اليومية</h2>
-
-  <input id="playerId" placeholder="PUBG ID">
-  <input id="playerName" placeholder="الاسم">
-
-  <div class="wheel-box">
-    <div id="wheel"></div>
-    <span class="pointer">▲</span>
+<div class="wheel-box">
+  <div class="wheel" id="wheel">
+    <span>6600</span>
+    <span>660</span>
+    <span>2000ج</span>
+    <span>لا شيء</span>
   </div>
-
-  <button class="spin" onclick="spin()">لف العجلة</button>
-  <p id="result"></p>
+  <div class="arrow">▲</div>
 </div>
+
+<input id="pid" placeholder="PUBG ID">
+<input id="pname" placeholder="الاسم">
+
+<button class="spin" onclick="spin()">لف العجلة</button>
+
+<p id="msg"></p>
 
 <div class="share">
-  <p>شارك الموقع — بعد 50 مشاركة حظك يتحسن</p>
-  <button onclick="share()">مشاركة</button>
+  <button onclick="share()">مشاركة الموقع</button>
+  <p>المشاركات: <span id="shareCount">0</span> / 50</p>
 </div>
+
+<h3>📜 سجل النتائج</h3>
+<ul id="history"></ul>
 
 </div>
 
