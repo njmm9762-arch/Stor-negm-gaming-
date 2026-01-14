@@ -1,41 +1,44 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Stor Gaming</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Stor Gaming</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>The Stor Gaming</h1>
-</header>
+<div class="app">
 
-<nav>
-  <button onclick="sellAccount()">بيع حسابات ببجي</button>
-  <button onclick="buyAccount()">شراء حسابات ببجي</button>
-</nav>
+<h1 class="title">The Stor Gaming</h1>
 
-<section class="wheel-section">
+<div class="actions">
+  <button onclick="sellAccount()">بيع حساب ببجي</button>
+  <button onclick="buyAccount()">شراء حساب ببجي</button>
+</div>
+
+<div class="wheel-section">
   <h2>🎡 عجلة الحظ اليومية</h2>
-  <input type="text" id="playerId" placeholder="PUBG ID">
-  <input type="text" id="playerName" placeholder="الاسم">
+
+  <input id="playerId" placeholder="PUBG ID">
+  <input id="playerName" placeholder="الاسم">
 
   <div class="wheel-box">
-    <div class="wheel" id="wheel"></div>
-    <div class="pointer">▲</div>
+    <div id="wheel"></div>
+    <span class="pointer">▲</span>
   </div>
 
-  <button class="spin-btn" onclick="spinWheel()">لف العجلة</button>
+  <button class="spin" onclick="spin()">لف العجلة</button>
   <p id="result"></p>
-</section>
+</div>
 
-<section class="share">
-  <h3>🔗 شارك الموقع</h3>
-  <button onclick="shareSite()">مشاركة</button>
-  <p>بعد 50 مشاركة حظك يتحسن</p>
-</section>
+<div class="share">
+  <p>شارك الموقع — بعد 50 مشاركة حظك يتحسن</p>
+  <button onclick="share()">مشاركة</button>
+</div>
+
+</div>
 
 <script src="script.js"></script>
 </body>
