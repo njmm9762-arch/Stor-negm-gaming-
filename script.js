@@ -1,42 +1,60 @@
-const phone = "2001211056530";
+const wheel = document.getElementById("wheel");
+const result = document.getElementById("result");
 
-function sell(){
-  window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent("انا مثبته وعايز ابيع حساب ببجي")}`;
+function todayKey(){
+  return "spin_" + new Date().toISOString().slice(0,10);
 }
 
-function buy(){
-  window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent("عايز اشتري حساب ببجي")}`;
-}
-
-function showWheel(){
-  document.getElementById('mainMenu').style.display='none';
-  document.getElementById('wheelBox').style.display='block';
-}
-
-function back(){
-  document.getElementById('wheelBox').style.display='none';
-  document.getElementById('mainMenu').style.display='grid';
-}
-
-function spin(){
-  const today = new Date().toDateString();
-  if(localStorage.getItem('spin')===today){
-    document.getElementById('result').innerText='❌ استخدمت لفتك اليومية – تعويض المرة القادمة';
+function spinWheel(){
+  if(localStorage.getItem(todayKey())){
+    result.innerText = "لفتك خلصت النهارده، اتعوض بكرة";
     return;
   }
-  localStorage.setItem('spin',today);
-  document.getElementById('result').innerText='❌ فشل – سيتم التعويض في المرة القادمة';
+
+  const id = document.getElementById("playerId").value;
+  const name = document.getElementById("playerName").value;
+  if(!id || !name){
+    result.innerText = "اكتب الـ ID والاسم";
+    return;
+  }
+
+  localStorage.setItem(todayKey(),"done");
+
+  const angle = 360*6 + 270; // حركة العجلة
+  wheel.style.transform = `rotate(${angle}deg)`;
+
+  setTimeout(()=>{
+    result.innerText = "حظ أوفر 😄";
+  },3000);
+}
+
+function sellAccount(){
+  window.open("https://wa.me/2001211056530?text=اريد%20بيع%20حساب","_blank");
+}
+
+function buyAccount(){
+  window.open("https://wa.me/2001211056530?text=اريد%20شراء%20حساب","_blank");
 }
 
 function shareSite(){
-  alert('شارك رابط الموقع على واتساب وتليجرام 🚀\nلو وصل لـ 50 شخص حظك هيكون أفضل 🔥');
-}
+  let count = localStorage.getItem("shareCount");
+  count = count ? parseInt(count)+1 : 1;
+  localStorage.setItem("shareCount", count);
 
-function addComment(){
-  const txt = document.getElementById('comment').value;
-  if(!txt) return;
-  const li = document.createElement('li');
-  li.innerText = txt;
-  document.getElementById('comments').appendChild(li);
-  document.getElementById('comment').value='';
+  if(count >= 50){
+    result.innerText = "🔥 مبروك! حظك اتحسن بعد 50 مشاركة";
+  } else {
+    result.innerText = `شاركت ${count} مرة من 50`;
+  }
+
+  const siteLink = "https://njmm9762-arch.github.io/Stor-negm-gaming-/";
+  if(navigator.share){
+    navigator.share({
+      title: "The Stor Gaming",
+      text: "جرب عجلة الحظ في The Stor Gaming 🔥",
+      url: siteLink
+    });
+  } else {
+    window.open(`https://wa.me/?text=جرب%20موقع%20The%20Stor%20Gaming%20🔥%0A${siteLink}`, "_blank");
+  }
 }
